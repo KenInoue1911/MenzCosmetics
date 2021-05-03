@@ -7,12 +7,41 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
+  
+  <div class="gender-field">
+    <%= f.label :gender %><br />
+    <%= f.label :男性 %>
+    <%= f.radio_button :gender, :男性, checked: true %>
+    <%= f.label :女性 %>
+    <%= f.radio_button :gender, :女性 %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  
 
+    <%= f.label :birth_date %><br />
+    <%= f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1) %>
+
+<div class="job-field">
+  <%= f.label :job %><br />
+  <%= f.label :会社員 %>
+  <%= f.radio_button :job, :会社員, checked: true %>
+  <%= f.label :美容関係者 %>
+  <%= f.radio_button :job, :美容関係者 %><br />
+  <%= f.label :フリーター・パート %>
+  <%= f.radio_button :job, :フリーター・パート %>
+  <%= f.label :大学生 %>
+  <%= f.radio_button :job, :大学生 %><br />
+  <%= f.label :高校生 %>
+  <%= f.radio_button :job, :高校生 %>
+  <%= f.label :中学生・小学生 %>
+  <%= f.radio_button :job, :中学生・小学生 %><br />
+  <%= f.label :その他 %>
+  <%= f.radio_button :job, :その他 %>
+</div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
