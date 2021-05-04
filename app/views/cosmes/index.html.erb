@@ -1,0 +1,12 @@
+<% @cosmes.each do |cosme| %>
+<h1>index</h1>
+<div>
+  <%= link_to cosme_path(cosme.id) do %>
+   <%= attachment_image_tag cosme, :image %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+  <p>ショップ名：<%= cosme.name %></p>
+  <p>説明：<%= cosme.caption %></p>
+  <p>ユーザーネーム：<%= cosme.user.name %></p>
+</div>
+<% end %>

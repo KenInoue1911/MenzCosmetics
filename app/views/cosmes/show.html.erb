@@ -1,0 +1,9 @@
+<div class="post-body">
+  <%= attachment_image_tag @cosme, :image %>
+  <p>ショップ名：<%= @cosme.name %></p>
+  <p>説明：<%= @cosme.caption %></p>
+  <p>ユーザーネーム：<%= @cosme.user.name %></p>
+  <% if @cosme.user == current_user %>
+    <%= link_to "削除", cosme_path(@cosme), method: :delete %>
+  <% end %>
+</div>

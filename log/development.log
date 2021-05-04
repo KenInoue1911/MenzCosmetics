@@ -1,0 +1,805 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20210501011403)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210501011403_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20210501011403_devise_create_users.rb:41
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20210501011403_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210501011403"]]
+  ↳ bin/rails:9
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddGenderToUser (20210503100530)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "gender" integer DEFAULT 0 NOT NULL[0m
+  ↳ db/migrate/20210503100530_add_gender_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210503100530"]]
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddBirthDateToUser (20210503100709)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "birth_date" date[0m
+  ↳ db/migrate/20210503100709_add_birth_date_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210503100709"]]
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddJobToUser (20210503104431)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "job" integer[0m
+  ↳ db/migrate/20210503104431_add_job_to_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210503104431"]]
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCosmes (20210504012615)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cosmes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "caption" text, "image_id" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210504012615_create_cosmes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210504012615"]]
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-04 01:26:22.543934"], ["updated_at", "2021-05-04 01:26:22.543934"]]
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 118.87.177.107 at 2021-05-04 01:50:29 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 1135ms (Views: 1114.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 01:50:31 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 01:50:33 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"TNsftXF5Dm__jWxET2e7ao6NITQzrWyo4qmgdCHB8K2wvfLkOpXUxKsHbF2yvHEfGfbEUBGjpN_nzGLsjc00jg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:9
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "ゲスト"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "guest@example.com"], ["encrypted_password", "$2a$12$DgJhGT78MnAJUa9oPRGGhOWjrQ21lCosZfXahfzNFKEYQql4DsQrS"], ["name", "ゲスト"], ["created_at", "2021-05-04 01:50:34.000152"], ["updated_at", "2021-05-04 01:50:34.000152"]]
+  ↳ app/models/user.rb:9
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 375ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 01:50:34 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:50:42 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.2ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (4.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 54ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:51:07 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:51:08 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 73ms (Views: 72.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:51:12 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cosme" for 118.87.177.107 at 2021-05-04 01:51:27 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/cosme"):
+  
+actionpack (5.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.5) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 01:51:42 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PGmru0k3sOw41OT4aBOIT1cQOt_KAzD3jKTyT5CXaY_AD0bqAttqR2xe5OGVyEI6wGvfu-gN-ICJwTDXPJutrA"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 43ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 01:51:43 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 01:51:44 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"fjASaTcXPr53QK7ujFp9ISX_Q5uoHBc0hD89sdoDR8Yohiw_X5_EBrvUKxNDmEd0u_rhsBsR7CPHUmkiH_qp6w"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 01:51:44 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:51:49 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cosme" for 118.87.177.107 at 2021-05-04 01:52:05 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/cosme"):
+  
+actionpack (5.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.5) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cosmes/new" for 118.87.177.107 at 2021-05-04 01:52:18 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#new as HTML
+  Rendering cosmes/new.html.erb within layouts/application
+  Rendered cosmes/new.html.erb within layouts/application (18.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 64ms (Views: 55.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cosmes" for 118.87.177.107 at 2021-05-04 01:52:24 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v-nn4ZpHvOWjgLe4QAqCwB9L7ej6ztfAMIHqz37R5R7pX9m38s9GXW8UMkWPyLiVgU5Pw0nDLNdz7L5cuygLMw", "cosme"=>{"image"=>"{}", "name"=>"asdasd", "caption"=>"adasd"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cosmes_controller.rb:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:9
+  [1m[36mCosme Create (2.0ms)[0m  [1m[32mINSERT INTO "cosmes" ("name", "caption", "image_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "asdasd"], ["caption", "adasd"], ["image_id", nil], ["user_id", 1], ["created_at", "2021-05-04 01:52:24.217177"], ["updated_at", "2021-05-04 01:52:24.217177"]]
+  ↳ app/controllers/cosmes_controller.rb:9
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cosmes_controller.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/cosmes
+Completed 302 Found in 38ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:52:24 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (238.6ms)
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post_image' for #<#<Class:0x00007fa3822ec110>:0x00007fa388035240>
+Did you mean?  path_to_image):
+    3: <div>
+    4:   <%= attachment_image_tag cosme, :image %>
+    5:   <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+    6:   <p>ショップ名：<%= post_image.name %></p>
+    7:   <p>説明：<%= post_image.caption %></p>
+    8:   <p>ユーザーネーム：<%= post_image.user.name %></p>
+    9: </div>
+  
+app/views/cosmes/index.html.erb:6:in `block in _app_views_cosmes_index_html_erb___1009468835689653639_70170169158980'
+app/views/cosmes/index.html.erb:1:in `_app_views_cosmes_index_html_erb___1009468835689653639_70170169158980'
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 01:53:02 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/index.html.erb:8
+  Rendered cosmes/index.html.erb within layouts/application (9.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cosmes/top" for 118.87.177.107 at 2021-05-04 01:59:15 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by CosmesController#top as HTML
+  Rendering cosmes/top.html.erb within layouts/application
+  Rendered cosmes/top.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 345ms (Views: 334.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cosmes/" for 118.87.177.107 at 2021-05-04 01:59:25 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.2ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/index.html.erb:8
+  Rendered cosmes/index.html.erb within layouts/application (18.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cosmes/" for 118.87.177.107 at 2021-05-04 02:42:51 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.2ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/index.html.erb:10
+  Rendered cosmes/index.html.erb within layouts/application (31.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 95ms (Views: 84.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cosmes/1" for 118.87.177.107 at 2021-05-04 02:43:12 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCosme Load (0.2ms)[0m  [1m[34mSELECT  "cosmes".* FROM "cosmes" WHERE "cosmes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:21
+  Rendering cosmes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/show.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/show.html.erb:6
+  Rendered cosmes/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 45ms (Views: 42.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cosmes/1" for 118.87.177.107 at 2021-05-04 02:43:17 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT  "cosmes".* FROM "cosmes" WHERE "cosmes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:21
+  Rendering cosmes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/show.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/show.html.erb:6
+  Rendered cosmes/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 43ms (Views: 40.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/cosmes/1" for 118.87.177.107 at 2021-05-04 02:43:30 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UqDJwOm17nTrb8b6KPGjCGeLeJx93FwJqGGgiBZj7woEFveWgT0UzCf7QwfnM5ld-Y7at87Rpx7rDPQb05oBJw", "id"=>"1"}
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT  "cosmes".* FROM "cosmes" WHERE "cosmes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cosmes_controller.rb:26
+  [1m[36mCosme Destroy (23.1ms)[0m  [1m[31mDELETE FROM "cosmes" WHERE "cosmes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/cosmes_controller.rb:26
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cosmes_controller.rb:26
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/cosmes
+Completed 302 Found in 37ms (ActiveRecord: 28.5ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 02:43:30 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  Rendered cosmes/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cosmes/new" for 118.87.177.107 at 2021-05-04 02:43:38 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#new as HTML
+  Rendering cosmes/new.html.erb within layouts/application
+  Rendered cosmes/new.html.erb within layouts/application (14.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 54ms (Views: 52.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/cosmes" for 118.87.177.107 at 2021-05-04 02:43:52 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IIeV8ZG0S5rR6vXq181LTH_Z672o7kGoMwNtvul1h7p2Maun-TyxIh1-cBcYD3EZ4dxJlhvjur9wbjktLIxplw", "cosme"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x0000000004498f50 @tempfile=#<Tempfile:/tmp/RackMultipart20210504-10509-jbeygr.jpg>, @original_filename="A34759FD-3FD9-41E1-A4FB-D8102CBA3D56.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"cosme[image]\"; filename=\"A34759FD-3FD9-41E1-A4FB-D8102CBA3D56.jpg\"\r\nContent-Type: image/jpeg\r\n">, "name"=>"aaaa", "caption"=>"aaaa"}, "commit"=>"投稿"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cosmes_controller.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:12
+  [1m[36mCosme Create (3.7ms)[0m  [1m[32mINSERT INTO "cosmes" ("name", "caption", "image_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "aaaa"], ["caption", "aaaa"], ["image_id", "45420948988d4dd9cedd1b6b552e54050684f6cc52c94df67c9e0e9bbfaa"], ["user_id", 1], ["created_at", "2021-05-04 02:43:52.739244"], ["updated_at", "2021-05-04 02:43:52.739244"]]
+  ↳ app/controllers/cosmes_controller.rb:12
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cosmes_controller.rb:12
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/cosmes
+Completed 302 Found in 26ms (ActiveRecord: 9.3ms)
+
+
+Started GET "/cosmes" for 118.87.177.107 at 2021-05-04 02:43:52 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#index as HTML
+  Rendering cosmes/index.html.erb within layouts/application
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT "cosmes".* FROM "cosmes"[0m
+  ↳ app/views/cosmes/index.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/index.html.erb:10
+  Rendered cosmes/index.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 61ms (Views: 59.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/attachments/ceab1bbaef19938a0baccdc5112b1576ed1a75bc/store/45420948988d4dd9cedd1b6b552e54050684f6cc52c94df67c9e0e9bbfaa/image" for 118.87.177.107 at 2021-05-04 02:43:53 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Refile::App: [2021-05-04 02:43:53 +0000] GET "/ceab1bbaef19938a0baccdc5112b1576ed1a75bc/store/45420948988d4dd9cedd1b6b552e54050684f6cc52c94df67c9e0e9bbfaa/image" 200 8.9ms
+
+Started GET "/cosmes/2" for 118.87.177.107 at 2021-05-04 02:43:57 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCosme Load (0.1ms)[0m  [1m[34mSELECT  "cosmes".* FROM "cosmes" WHERE "cosmes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cosmes_controller.rb:21
+  Rendering cosmes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/show.html.erb:5
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/cosmes/show.html.erb:6
+  Rendered cosmes/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cosme33333" for 118.87.177.107 at 2021-05-04 02:45:39 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/cosme33333"):
+  
+actionpack (5.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.5) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.5) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:46:17 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/ec2-user/environment/MenzCosmetics-main/app/controllers/application_controller.rb:11: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/application_controller.rb:11: syntax error, unexpected end-of-input, expecting end
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:46:39 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+SyntaxError (/home/ec2-user/environment/MenzCosmetics-main/app/controllers/application_controller.rb:11: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/application_controller.rb:11: syntax error, unexpected end-of-input, expecting end
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:47:00 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8GhbqhOkh4cvJOquBMUpFxnHY-3ck6Zm2qHnXIOsK92m3mX8eyx9P-Owb1PLBxNCh8LBxm-eXXGZzLPPRlXF8A"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 35ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:47:00 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 41ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 02:47:03 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"-b7OdCfAuyE-aMR_Twp4GOAtCbvyLFlJPQlMwMgi5Lg3U5hv1j1XoG9f0AoVr5yBQ4jadupuEy1cjZwcPWg91Q"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:47:04 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:47:08 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"D7klKj3h3UD453XtbActUqdybMGwJtbH6BlRiidqBw_BVHMxzBwxwanQYZg2osnLBNe_DKhknKOJnYFW0iDeYg"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:47:08 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 60ms (Views: 59.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 118.87.177.107 at 2021-05-04 02:47:11 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 66ms (Views: 65.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 118.87.177.107 at 2021-05-04 02:47:21 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XIYtV96oRcASswbOAFYNkFnpRYy_IXF7kWceKpLLkmFb4x4OA-YBEJkK4xrJly1yworm7Viq6G-UdGVGOPycHA", "user"=>{"email"=>"1@1", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "1@1"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XIYtV96oRcASswbOAFYNkFnpRYy_IXF7kWceKpLLkmFb4x4OA-YBEJkK4xrJly1yworm7Viq6G-UdGVGOPycHA", "user"=>{"email"=>"1@1", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 363ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 118.87.177.107 at 2021-05-04 02:47:24 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (94.4ms)
+Completed 200 OK in 131ms (Views: 130.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 02:47:34 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"GEd_3W_tcNWbGsrTw15QfFqKHIde-ZN7F4YIefwcfyazXkCgj5ZJRZrne6fmxJUt-rZUtJyMJ-lvI0s8tg5kFw"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:47:34 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:47:52 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RGovuBkSUKS7OzDTQrnM2NyT3GDPb_nyu4PrsdJTycPvcxDF-WlpNLrGgadnIwmJfK-UUw0aTWDDJqj0mEHS8g"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:47:52 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 35ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 02:47:53 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"7BR4SdCafB9D7kSH3rnkygvJMBSF1klZXpG_qEufxan6_6FmW_vqiodSnXaK_UtbX1qELv6hp4xvJD2chLDzpA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 35ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:47:53 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:48:36 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9N_Ppv0uz2FYaYcK9Zj0OQCYaWdM0mrgWlGXDUBQ1o3iNBaJdk9Z9JzVXvuh3FuoVAvdXTelhDVr5BU5j3_ggA"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 22ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:48:36 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 02:48:37 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"f6teZrd659_V7sd56ZifiRQ72GuIw4x0eRJKMhEMWP9YnW-ihy1N2XfbrzOW46JfUuZ-3EwRWAcFpl3ndlT7Xg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/cosmes/top
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/cosmes/top" for 118.87.177.107 at 2021-05-04 02:48:38 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#top as HTML
+  Rendering cosmes/top.html.erb within layouts/application
+  Rendered cosmes/top.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/users/sign_out" for 118.87.177.107 at 2021-05-04 02:48:48 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9mFIyuUx07TDcphRLGiDjgTSqW-wARpzfvXI6eN52TPRV3kO1WZ5smFH8BtTE75YQg8P2HTTzgACQd88hCF6kg"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/
+Completed 302 Found in 20ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 118.87.177.107 at 2021-05-04 02:48:48 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 49ms (Views: 48.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/guest_sign_in" for 118.87.177.107 at 2021-05-04 02:48:49 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Users::SessionsController#guest_sign_in as HTML
+  Parameters: {"authenticity_token"=>"LOII4i6XDQVDnFKF7T5ZUFz3c2Z5JBU1c3MYooOJpd8Lavz4ybT3Lu6mMrHWYPgbwPTkAKHt08mhDWrUzHeUpA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:9
+Redirected to https://5e836987126a4261846a5ad7179e00df.vfs.cloud9.us-east-1.amazonaws.com/cosmes/top
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/cosmes/top" for 118.87.177.107 at 2021-05-04 02:48:49 +0000
+Cannot render console from 118.87.177.107! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CosmesController#top as HTML
+  Rendering cosmes/top.html.erb within layouts/application
+  Rendered cosmes/top.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:13
+Completed 200 OK in 68ms (Views: 67.5ms | ActiveRecord: 0.1ms)
+
+
